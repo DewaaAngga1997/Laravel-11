@@ -12,8 +12,8 @@
 
                                 <a href="/" {{-- jika request()->is('/') bernilai true, maka 'bg-gray-900 text-white' jika tidak 'text-gray-300 hover:bg-gray-700 hover:text-white' --}}
                                     class="{{ request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 text-sm font-medium  rounded-md">Home</a>
-                                <a href="/blog"
-                                    class="{{ request()->is('blog') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 text-sm font-medium rounded-md">Blog</a>
+                                <a href="/posts"
+                                    class="{{ request()->is('posts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 text-sm font-medium rounded-md">Blog</a>
                                 <a href="/about"
                                     class="{{ request()->is('about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} px-3 py-2 text-sm font-medium rounded-md">About</a>
                                 <a href="/contact"
@@ -94,16 +94,15 @@
             <div x-show="isOpen" class="md:hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="block px-3 py-2 text-base font-medium text-white bg-gray-900 rounded-md"
-                        aria-current="page">Home Page</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Home</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Blog</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">About</a>
-                    <a href="#"
-                        class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Contact</a>
+
+                    <a href="/"
+                        class="{{ request()->is('/') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}  px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block">Home</a>
+                    <a href="/posts"
+                        class="{{ request()->is('/posts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}  px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block">Blog</a>
+                    <a href="/about"
+                        class="{{ request()->is('/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}  px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block">About</a>
+                    <a href="/contact"
+                        class="{{ request()->is('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}  px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white block">Contact</a>
                 </div>
                 <div class="pt-4 pb-3 border-t border-gray-700">
                     <div class="flex items-center px-5">
