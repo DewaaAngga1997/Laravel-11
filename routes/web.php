@@ -1,6 +1,11 @@
 <?php
 
+//code use App\Models\Post adalah untuk memanggil model di folder App\Models\Post.php agar clas yang kita buat bisa di gunakan di route web.php
+use App\Models\Post;
+
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
@@ -8,25 +13,15 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
-    return view('posts', ["title" => "Blog", "posts" =>[
-        [
-            "title" => "Judul Post Pertama",
-            "slug" => "judul-post-pertama",
-            "author" => "Dewa Angga",
-            "body" => "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam architecto quasi
-            perspiciatis labore
-            aliquid explicabo nam iste, quis quod cum esse, voluptatum, omnis provident. Ex, maiores. Hic quis in
-            deserunt!"
-        ],
-        [
-            "title" => "Judul Post Kedua",
-            "slug" => "judul-post-pertama",
-            "author" => "Dewa Angga",
-            "body" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error quae corrupti
-            explicabo in a earum ipsum eum hic sed debitis? Voluptatem cum labore soluta quo unde eligendi inventore in
-            ullam."
-        ]
-    ]]);
+    return view('posts', ["title" => "Blog", "posts" => Post::all()]);
+});
+
+Route::get('/post/{slug}', function ($slug) {
+ 
+        $post = Post::find($slug);
+        return view ('post', [
+            "title" => 'Detail Blog',
+            "post" => $post]);
 });
 
 Route::get('/about', function () {
@@ -36,4 +31,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact', ["title" => "Contact"]);
 });
+
+
+
+
 
