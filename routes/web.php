@@ -18,7 +18,6 @@ Route::get('/posts', function () {
 
 Route::get('/post/{post:slug}', function (Post $post) {
  
-        // $post = Post::find($slug);
         return view ('post', [
             "title" => 'Detail Blog',
             "post" => $post]);
@@ -31,7 +30,6 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact', ["title" => "Contact"]);
 });
-
 
 
 
