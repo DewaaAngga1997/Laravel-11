@@ -10,6 +10,8 @@
             <div class="text-base text-gray-500">
                 <a href="/authors/{{ $post->author->username }}" class="hover:underline">{{ $post->author->name }}</a>
                 |
+                <a href="#" class="hover:underline">Web Programming</a>
+                |
                 {{ $post->created_at->diffForHumans() }}
             </div>
             <p class="my-4 font-light">{{ Str::limit($post['body'], 200) }}</p>
